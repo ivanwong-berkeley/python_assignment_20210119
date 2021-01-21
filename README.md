@@ -13,7 +13,7 @@ python ./app.py
 ### Access the web application 
 To change the number of record per page on the table view, use the URL query parameter "?per_page=<per_Page>"
 
-This application is deployed to AWS with a default of 25 rows per page.  The application can be access using this URL: http://35.247.36.115:5000/?per_page=25
+This application is deployed to the Google Cloud Platform with a default of 25 rows per page.  The application can be access using this URL: http://35.247.36.115:5000/?per_page=25
 
 ### Unit Test
 To test the application, run the following unit test cases.
