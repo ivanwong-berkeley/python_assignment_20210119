@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <!-- Bootstrap -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    </head>
+   <body>
+        <!--intro -->
+        <div class ='row'>
+            <div style='margin-left:100px;'>
+            <img src="{{url_for('static', filename='photos/b_IMG_7768.png')}}" width="200" height="300" >   
+            </div>
+            <div style='padding-top: 20px; padding-left:20px;'><h3>
+                 Python Test by Ivan Wong
+            </h3></div>
+        </div> 
+        <br>
+        <div class ='row'>
+
+        <br><br>
+        <div class="alert alert-success" role="alert" style='width: 90%; margin-left: 100px;'>
+        <strong>Github Users</strong> 
+        </div>
+        <!-- ends intro -->
+            
+        <!-- Table to list git users -->    
+        <div class="container">
+        {{ pagination.links }}
+         <div class="table-responsive">           
+          <table class = 'table table-hover' style = 'margin-left: 100px; margin-right: 100px; width: 90%;'>
+             <thead>
+                <tr>
+                <th>No.</th>    
+                <th>User ID</th>
+                <th>User Name</th>
+                <th>Avatar</th>
+                <th>Type</th>
+                </tr>
+             </thead>
+
+             {% for result in results %}
+                <tr>
+                   <td>{{ loop.index + (page - 1) * per_page }}</td>  
+                   <td>{{result["git_id"]}}</td>
+                   <td><a href={{result['git_profile_url']}}>{{result["git_username"]}}</a> </td>
+                   <td> <img src={{result["git_avatar_url"]}} alt="Trulli" width="50" height="50"></td>
+                   <td>{{result['git_type']}}</td>         
+                </tr>
+             {% endfor %}
+          </table>
+         </div>
+         <!-- end of table -->  
+    </body>
+    {{ pagination.links }}      
+</html>
